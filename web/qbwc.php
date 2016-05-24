@@ -3,16 +3,16 @@
 $s = empty($_SERVER['HTTPS']) ? '': 's';
 
 $base = "http$s://" . $_SERVER['SERVER_NAME'] . ':' .$_SERVER['SERVER_PORT'];
-$appUrl = $base .'/server.php';
-$supportUrl = $base .'/index.php';
+$appUrl = $base . dirname($_SERVER['REQUEST_URI']) . '/server.php';
+$supportUrl = $base . dirname($_SERVER['REQUEST_URI']) .'/index.php';
 
 $xml = <<<XML
 <?xml version="1.0"?>
 <QBWCXML>
-    <AppName>Bridge (DEV)</AppName>
+    <AppName>PHP Quickbooks Web Connector</AppName>
     <AppID>123123AAA</AppID>
     <AppURL>$appUrl</AppURL>
-    <AppDescription>asfdasdfasdf</AppDescription>
+    <AppDescription>PHP Quickbooks Web Connector</AppDescription>
     <AppSupport>$supportUrl</AppSupport>
     <UserName>username</UserName>
     <OwnerID>{9AAA4FB7-33D9-4815-AC85-AC86A7E7D1EB}</OwnerID>
